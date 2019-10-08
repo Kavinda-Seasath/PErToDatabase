@@ -12,7 +12,7 @@ public class Main {
 
         String      filepath;
         String      line;
-        String      insertQry = "INSERT INTO $tablename VALUES ('$date','$values');";
+        String      insertQuary = "INSERT INTO $tablename VALUES ('$date','$values');";
         String      createTbl = "CREATE TABLE $tablename (" +
                 "date DATE,raw_ID int PRIMARY KEY NOT NULL,exchange varchar(255),symbol varchar(255),isEndOfDay varchar(255)," +
                 "periodStart varchar(255),periodStop varchar(255),twaSpread varchar(255),rtwaSpread varchar(255)," +
@@ -106,7 +106,7 @@ public class Main {
                         //String[] frame = line.split("\\|");
                         //System.out.println(frame.length);
                         String values = line.replace("| ","','");
-                        String insQry = insertQry.replace("$tablename",tblName).replace("$values",values).replace("$date",date);
+                        String insQry = insertQuary.replace("$tablename",tblName).replace("$values",values).replace("$date",date);
                         //System.out.println(insQry);
                         stmt.executeUpdate(insQry);
 
